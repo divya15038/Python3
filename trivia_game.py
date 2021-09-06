@@ -59,3 +59,9 @@ Note that it can be used only once through a single round.
 2.50:50 - It will remove two wrong choices out of the four provided. Enter '5050' to avail this lifeline.
 Note - You cannot use the two lifelines in the same question otherwise 0 marks will be awarded.
 ENJOY the game:))""")
+
+#Ask the player for name and choice of show for round_1
+category = {1: "The Big Bang Theory", 2: "Schitt's Creek", 3: "Modern Family"}
+name = input('Enter your name: ')
+print("""You have the following choices for round1:{}""".format(category))
+tv_show = int(input('Enter number for sitcom for round_1: '))
