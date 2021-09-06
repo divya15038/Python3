@@ -25,3 +25,13 @@ class Player:
             print("Still, you participated and paricipation is the first step towards learning.")
             print("Thanks for participating!Better luck next time:))")
             exit()
+    
+    #used for declaring result for round_2
+    def qualify_round_2(self):
+        if self.total >= 12:
+            print("Congratulations! Yoh have scored {} points.".format(self.total))
+            print("You really are 'THE BIGGEST SITCOM FAN EVER'!!!")
+        else:
+            print("Congratulations on finishing this TRIVIA GAME. I hope you enjoyed it. You scored a total of {} points.".format(self.total))
+            print("You really are 'A FAN'!!")
+        print("Thankyou for playing:))")
