@@ -13,3 +13,15 @@ class Player:
     #decrements the score by 1 when question answered incorrectly
     def decr(self):
         self.total -= 1
+
+    #used for declaring result for round_1
+    def qualify_round_1(self):
+        if self.total >= 7:
+            print("Congratulations! You got in round 2.")
+            print("Your score is {}".format(self.total))
+            self.total = 0
+        else:
+            print("Unfortunately, you weren't able to qualify for round_2. Your score is {}".format(self.total))
+            print("Still, you participated and paricipation is the first step towards learning.")
+            print("Thanks for participating!Better luck next time:))")
+            exit()
