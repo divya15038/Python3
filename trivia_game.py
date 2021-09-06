@@ -43,3 +43,19 @@ print("   *    *   *    *     *     *     *      *   *         *         *  *   
 print("   *    *****    *      *   *      *     *******        * ***    ******   *  **  *  ***** ")
 print("   *    * *      *       * *       *    *       *       *   *   *      *  *   *  *  * ")
 print("   *    *   *  *****      *      ***** *         *      *****  *        * *      *  *****")
+
+#rules for the game
+print("""This game has two rounds namely:
+Round_1: SITCOM TRIVIA which will include 10 multi choice questions from a sitcom show of player's choice from the three given options.
+Round_2: FRIENDS TRIVIA which will include 15 multi choice questions from the most popular show friends.
+Rules are as below:
+(1)Each correct answer yields a +1 whereas incorrect answer will give you -1. You may skip a question if you want by entering '0' into answer which will lead to no negative marking.
+(2)For entering round_2 you need atleast 7 points in round_1.
+(3)You have one lifeline to assist you in case you need it in round_1, namely:
+1.Change the question - it will change the question.Enter '-1' into the terminal to avail it.
+Note that it can be used only once through a single round.
+(4)For round_2 you will have two lifelines which can only be used once throughout the round namely:
+1.Change the question - it will change the question. Enter '-1' to avail this lifeline.
+2.50:50 - It will remove two wrong choices out of the four provided. Enter '5050' to avail this lifeline.
+Note - You cannot use the two lifelines in the same question otherwise 0 marks will be awarded.
+ENJOY the game:))""")
