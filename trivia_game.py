@@ -65,3 +65,12 @@ category = {1: "The Big Bang Theory", 2: "Schitt's Creek", 3: "Modern Family"}
 name = input('Enter your name: ')
 print("""You have the following choices for round1:{}""".format(category))
 tv_show = int(input('Enter number for sitcom for round_1: '))
+
+#Checking for the valid entry of number for category
+if tv_show in category:
+    print("{} tv_show selected for round_1 by {}.".format(category[tv_show], name))
+else:
+    print("Invalid number.Please enter a valid number out of the given categories.")
+
+#Initializing player1 object of class 'Player'
+player_1 = Player(name, tv_show)
