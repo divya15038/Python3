@@ -158,3 +158,43 @@ if tv_show == 2:
                 count += 1
         #giving the final result
     player_1.qualify_round_1()
+
+#modern family trivia for round_1
+modern_family_questions = {"How may Emmys did Modern Family win and was nominated for?": ['1.22, 82', '2.20, 40', '3.16, 30', '4.14, 40'], "What's the name of Gloria's and Jay's son?": ['1.Manny', '2.Joe', '3.Luke', '4.Jose'], "What kind of company does Jay own?": ['1.sports equipments', '2.school tetxbooks', '3.closets', '4.pipe manufacturing'], "What is Cameron's alter ego clown's name?": ['1.Chuckles', '2.Tizbo', '3.Franky','4.Fizbo'], "Who's afraid of clowns after they found one dead in the woods?": ['1.Phil', '2.Manny', '3.Mitchell', '4.Jay'], "What friend of Jay's does Mitchell say was gay?": ['1.Shortie', '2.LeMicheal', '3.Leftie', '4.Ludwig'], "What is Phil's role play name on Valentine's Day?": [ '1.Cliff Dixon', '2.Clive Bixy','3.Chuck Smith', '4.Harry Stone'],"Who was Luke's first girlfriend?": ['1.Simone', '2.Rhonda', '3.Becca', '4.Janice'], "What number did Manny wear when he played football?": ['1.92', '2.99', '3.81', '4.75'], "How may moves did it take Manny to beat Jay in chess?": ['1.7', '2.2', '3.4', '4.5'], "What elementary school do Manny and Luke go to?": ['1.McKinley', '2.Franklin', '3.Grant', '4.Walgrove']}
+modern_family_answers = {"How may Emmys did Modern Family win and was nominated for?": 1, "What's the name of Gloria's and Jay's son?": 2, "What kind of company does Jay own?": 3, "What is Cameron's alter ego clown's name?": 4, "Who's afraid of clowns after they found one dead in the woods?": 1, "What friend of Jay's does Mitchell say was gay?": 1, "What is Phil's role play name on Valentine's Day?": 2, "Who was Luke's first girlfriend?": 4, "What number did Manny wear when he played football?":1, "How may moves did it take Manny to beat Jay in chess?": 3, "What elementary school do Manny and Luke go to?": 4}
+
+#Checking for category for round_1
+if tv_show == 3:
+    for question in modern_family_questions:
+        if count < 10:
+            print("Question:")
+            print(question)
+            print(modern_family_questions[question])
+            answer = input('Answer: ')
+            #checking for correct answer
+            if int(answer) == modern_family_answers[question]:
+                player_1.incr()
+                print("Congratulations! This is the correct answer.")
+                count += 1
+            #Skipping question marks awarded =0
+            elif answer == '0':
+                print("Skipping the present question.")
+                count += 1
+                continue
+            #flipping the question
+            elif answer == '-1' and lifeline == True:
+                print("Changing the question")
+                lifeline = False
+                continue
+            #checking that the lifeline is used only once
+            elif answer == '-1' and lifeline == False:
+                print("You can use the lifeline only once.So you'll be awarded 0 marks for this question.")
+                count += 1
+                continue
+            #checking for incorrect answer
+            else:
+                print("Unfortunately, your answer is incorrect:(( ")
+                player_1.decr()
+                count += 1
+    #giving the final result
+    player_1.qualify_round_1()
