@@ -74,3 +74,45 @@ else:
 
 #Initializing player1 object of class 'Player'
 player_1 = Player(name, tv_show)
+
+#Big Bang Theory Trivia
+big_bang_theory_questions = {"What does Sheldon's mom call him?": ['1.Sheldon', '2.Pumpkin', '3.Shelly', '4.Doc'], "What breed of dog does Raj have?": ['1.Cocker Spaniel', '2.Golden Retriever', '3.Maltese', '4.Yorkshire Terrier'], "Who is the only member of the cast to hold a PhD in real life": ['1.Jim Parsons', '2.Johnny Galecki', '3.Mayim Bialik', '4.Kaley Cuoco'], "What astronaut nickname was Howard given by his space friends": ['1.Rocket Man', '2.Howie', '3.Froot Loops', '4.Big Guy'], "What is the name of the science show host played by Bob Newhart that Sheldon and Leonard love so much?": ['1.Professor Proton', '2.Dr.DNA', '3.Mr.Microbe', '4.The Sultan of Science'], "Where did Amy get her undergraduate degree?": ['1.Standford', '2.Yale', '3.MIT', '4.Harvard'], "What apartment do Penny and Leonard live in?": ['1.4B', '2.3B', '3.3A', '4.4A'], "Who was once engaged to a Saudi prince?": ['1.Penny', '2.Bernadette', '3.Amy', '4.Raj'], "Who officiates Sheldon and Amy's wedding?": ['1.Will Weathon', '2.Leonard', '3.Mark Hamill', '4.Raj'], "Where do Sheldon, Amy, Raj, Howard and Leonard work?": ['1.Caltech', '2.UCLA', '3.USC', '4.Cal Poly'], "How did Sheldon and Amy meet?": ['1.Online Dating', '2.Through Leonard', '3.Through Penny', '4.At Caltech'], "Where is Sheldon originally from?": ['Texas', 'LA', 'Oklohoma', 'Pennsylvania']}
+big_bang_theory_answers = {"What does Sheldon's mom call him?": 3, "What breed of dog does Raj have?": 4, "Who is the only member of the cast to hold a PhD in real life": 3, "What astronaut nickname was Howard given by his space friends": 3, "What is the name of the science show host played by Bob Newhart that Sheldon and Leonard love so much?": 1, "Where did Amy get her undergraduate degree?": 4, "What apartment do Penny and Leonard live in?": 4, "Who was once engaged to a Saudi prince?": 3, "Who officiates Sheldon and Amy's wedding?": 3, "Where do Sheldon, Amy, Raj, Howard and Leonard work?": 1, "How did Sheldon and Amy meet?": 1, "Where is Sheldon originally from?": 1}
+
+count = 0
+lifeline = True
+#Checking for category for round_1
+if tv_show == 1:
+    for question in big_bang_theory_questions:
+        if count < 10:
+            print("Question:")
+            print(question)
+            print(big_bang_theory_questions[question])
+            answer = input('Answer: ')
+            #checking for correct answer
+            if int(answer) == big_bang_theory_answers[question]:
+                player_1.incr()
+                print("Congratulations! This is the correct answer.")
+                count += 1
+            #Skipping question marks awarded =0
+            elif answer == '0':
+                print("Skipping the present question.")
+                count += 1
+                continue
+            #flipping the question
+            elif answer == '-1' and lifeline == True:
+                print("Changing the question")
+                lifeline = False
+                continue
+            #checking that the lifeline is used only once
+            elif answer == '-1' and lifeline == False:
+                print("You can use the lifeline only once.So you'll be awarded 0 marks for this question.")
+                count += 1
+                continue
+            #checking for incorrect answer
+            else:
+                print("Unfortunately, your answer is incorrect:(( ")
+                player_1.decr()
+                count += 1
+    #giving the final result
+    player_1.qualify_round_1()
