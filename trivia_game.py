@@ -116,3 +116,45 @@ if tv_show == 1:
                 count += 1
     #giving the final result
     player_1.qualify_round_1()
+
+
+#Schitt's Creek Trivia
+schitts_creek_questions = {"What dish does Moira Rose try to cook in second season's 'Family Dinner' episode?": ['1.Meatloaf', '2.Enchiladas', '3.Lasagna', '4.Brocolli Casserole'], "David meets the love of his life Patrick when..": ['1.Trying to get licensing for his apothecary shop', '2.Going on a turkey hunt', '3.Patrick serenades him', '4.On a road trip'], "Alexis meets Mutt while doing community service for...": ['1.Possession', '2.Grand Theft Auto', '3.Driving Under the Influence', '4.Jaywalking'], "Johnny Rose was a little worried by the welcome sign for Schitt's Creek. What sign did Roland add to solve the problem?": ['1.We believe in family values!', "2.Don't Worry. It's his sister!", "3.Spelled with a 'C'!", "4.We're flush with all kinds of crap!"], "What hunting does David go on with Stevie?": ['1.Tiger hunting', '2.Chicken hunting', '3.Ostrich hunting', '4.Turkey hunting'], "What is the name of the female music group in Schitt's Creek?": ['1.Jazzagals', '2.Popstar Pipettes', '3.Blues Birds', '4.Songstresses'], "Twyla works in which cafe?": ['1.Cafe Creek', '2.Cafe Tropical', '3.Starbucks', '4.Rose Cafe'], "In what commercial does Moira Rose star after coming to Schitt's Creek": ['1.Canned lasagna', '2.Fruit Wine', '3.Bedazzled bidets', '4.Organic Mascara'], "Which council member is married to Gwen": ['1.Ronnie', '2.Ray', '3.Roland', '4.Bob'], "Why did Jhonny Rose purchase the Schitt's Creek town": ['1.As a wedding gift for Moira', '2.As a joke for Alexis', '3.As a joke for David', '4.As an investment'], "On David's wedding day, what does Alexis wear?": ['1.A wedding dress', "2.Moira's Red carpet gown", '3.A black dress', '4.A golden gown']}
+schitts_creek_answers = {"What dish does Moira Rose try to cook in second season's 'Family Dinner' episode?": 2, "David meets the love of his life Patrick when..": 1, "Alexis meets Mutt while doing community service for...": 3, "Johnny Rose was a little worried by the welcome sign for Schitt's Creek. What sign did Roland add to solve the problem?": 2, "What hunting does David go on with Stevie?": 4, "What is the name of the female music group in Schitt's Creek?": 1, "Twyla works in which cafe?": 2, "In what commercial does Moira Rose star after coming to Schitt's Creek": 2, "Which council member is married to Gwen": 4, "Why did Jhonny Rose purchase the Schitt's Creek town": 3, "On David's wedding day, what does Alexis wear?": 1}
+
+
+#Checking for category for round_2
+if tv_show == 2:
+    for question in schitts_creek_questions:
+        if count < 10:
+            print("Question:")
+            print(question)
+            print(schitts_creek_questions[question])
+            answer = input('Answer: ')
+            #checking for correct answer
+            if int(answer) == schitts_creek_answers[question]:
+                player_1.incr()
+                print("Congratulations! This is the correct answer.")
+                count += 1
+            #Skipping question marks awarded =0
+            elif answer == '0':
+                print("Skipping the present question.")
+                count += 1
+                continue
+            #flipping the question
+            elif answer == '-1' and lifeline == True:
+                print("Changing the question")
+                lifeline = False
+                continue
+            #checking that the lifeline is used only once
+            elif answer == '-1' and lifeline == False:
+                print("You can use the lifeline only once.So you'll be awarded 0 marks for this question.")
+                count += 1
+                continue
+            #checking for incorrect answer
+            else:
+                print("Unfortunately, your answer is incorrect:(( ")
+                player_1.decr()
+                count += 1
+        #giving the final result
+    player_1.qualify_round_1()
