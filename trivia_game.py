@@ -207,3 +207,80 @@ Also you can use two lifelines:
 (2)50:50 : Press '5050' to avail it.
 ALL THE BEST ;)) """)
 #Round 2 begins
+
+#friends trivia 
+friends_trivia_questions = {"What is the name of Rachel's hairless cat?": ['1.Mrs.Cottontail', '2.Fluffy', '3.Mrs.Whiskerson', '4.Miss Kitty'], "Who got stuck in a pair of leather pants?": ['1.Ross', '2.Joey', '3.Chandler', '4.Monica'], "What is the name of Phoebe's alter ego?": ['1.Monana Spratt', '2.Regina Phalange', '3.Felula Jane', '4.Jemima Puddleduck'], "Who says the last line of the series?": ['1.Joey', '2.Ross', '3.Monica', '4.Chandler'], "What kind of animal is Joey's friend 'HUGSY'?": ['1.Puppy', '2.Panda', '3. Penguin', '4.Cat'], "Where did Rachel, Monica and Ross go to high school?": ['1.Lincoln High', '2.Washington High', '3.Marymount High', '4.Brooklyn High'], "What color is the couch in Central Perk?": ['1.Brown', '2.Black', '3.Orange', '4.Red'], "How many categories of towels does Monica have?": ['1.10', '2.11', '3.12', '4.9'], "Where do friends go on holiday for Ross's boring palaeontology conference?": ['1.Minsk', '2.Cancum','3.Barbados', '4.Yemen'], "What is the name of Joey's Agent?": ['1.Estella', '2.Edith', '3.Erin', '4.Erica'], "What kind of uniform does Joey wear to Monica and Chandler's wedding?": ['1.Police', '2.Fireman', '3.Navy', '4.Army'], "How many babies are born during the show's 10 seasons?": ['1.6', '2.7', '3.3', '4.5'], "What is Chandler's middle name?": ['1.Marcel', '2.Marice', '3.Muriel', '4.Marine'], "What was Rachel's childhood dog called?": ['1.LaPoo', '2.Marcel', 'Bo Bo', 'Chi Chi'], "What is the name of Joey, Ross and Chandler's favorite basketball team?": ['1.The Yankees', '2.The Knicks', '3.The Lakers', '4.The Celtics'], "What did Monica and Chandler name their kids?": ['1.Jake and Alice', '2.Jack and Erica', '3.John and Alice', '4.Johna and Emma']}
+friends_trivia_answers = {"What is the name of Rachel's hairless cat?": 3, "Who got stuck in a pair of leather pants?": 1, "What is the name of Phoebe's alter ego?": 2, "Who says the last line of the series?": 4, "What kind of animal is Joey's friend 'HUGSY'?": 3, "Where did Rachel, Monica and Ross go to high school?": 1, "What color is the couch in Central Perk?": 3, "How many categories of towels does Monica have?": 2, "Where do friends go on holiday for Ross's boring palaeontology conference?": 3, "What is the name of Joey's Agent?": 1, "What kind of uniform does Joey wear to Monica and Chandler's wedding?": 4, "How many babies are born during the show's 10 seasons?": 2, "What is Chandler's middle name?": 3, "What was Rachel's childhood dog called?": 1, "What is the name of Joey, Ross and Chandler's favorite basketball team?": 2, "What did Monica and Chandler name their kids?": 2}
+friends_trivia_5050 = {"What is the name of Rachel's hairless cat?": ['1.Fluffy', '3.Mrs.Whiskerson'], "Who got stuck in a pair of leather pants?": ['1.Ross', '3.Chandler'], "What is the name of Phoebe's alter ego?": ['2.Regina Phalange', '3.Felula Jane'], "Who says the last line of the series?": ['1.Joey', '4.Chandler'], "What kind of animal is Joey's friend 'HUGSY'?": ['2.Panda', '3.Penguin'], "Where did Rachel, Monica and Ross go to high school?": ['1.Lincoln High', '2.Washington High'], "What color is the couch in Central Perk?": ['1.Brown', '3.Orange'], "How many categories of towels does Monica have?": ['1.10', '2.11'], "Where do friends go on holiday for Ross's boring palaeontology conference?": ['3.Barbados', '4.Yemen'], "What is the name of Joey's Agent?":['1.Estella', '2.Edith'], "What kind of uniform does Joey wear to Monica and Chandler's wedding?": ['1.Police', '4.Army'], "How many babies are born during the show's 10 seasons?": ['1.6', '2.7'], "What is Chandler's middle name?": ['1.Marcel', '3.Muriel'], "What was Rachel's childhood dog called?": ['1.LaPoo', '3.Bo Bo'], "What is the name of Joey, Ross and Chandler's favorite basketball team?": ['1.The Yankees', '2.The Knicks'], "What did Monica and Chandler name their kids?": ['2.Jack and Erica', '3.John and Alice']}
+
+
+counter = 0
+lifeline1 = True
+lifeline = True
+cons_use = False
+for question in friends_trivia_questions:
+    print(lifeline)
+    print(lifeline1)
+    if counter < 15:
+        print("Question:")
+        print(question)
+        print(friends_trivia_questions[question])
+        answer = input('Answer: ')
+        #checking for correct answer
+        if int(answer) == friends_trivia_answers[question]:
+            player_1.incr()
+            print("Congratulations! This is the correct answer.")
+            counter += 1
+        #Skipping question marks awarded =0
+        elif answer == '0':
+            print("Skipping the present question.")
+            counter += 1
+            continue
+        #flipping the question
+        elif answer == '-1' and lifeline == True:
+            print("Changing the question")
+            cons_use = True
+            lifeline = False
+            continue
+        #checking that the lifeline is used only once
+        elif answer == '-1' and lifeline == False:
+            print("You can use the lifeline only once.So you'll be awarded 0 marks for this question.")
+            counter += 1
+            continue
+        #checking if lifeline 5050 is only used once
+        elif answer == '5050' and lifeline1 == False:
+            print("You can use this lifeline only once and hence will be awarded no points.")
+            count += 1
+            continue
+        elif answer == '5050' and cons_use ==True and lifeline == False:
+            print("You can use only one lifeline in a single question and hence will be awarded no points.")
+            count += 1
+            cons_use = False
+        #checking for lifeline 5050
+        elif answer == '5050' and lifeline1 == True:    
+            print("Activating lifeline: '50:50'. Your options are:")
+            print(friends_trivia_5050[question])
+            lifeline1 = False
+            answer2 = input('Answer: ')
+            if int(answer2) == friends_trivia_answers[question]:
+                player_1.incr()
+                print("Congratulations! This is the correct answer.")
+                counter += 1
+            #Skipping question marks awarded =0
+            elif answer2 == '0':
+                print("Skipping the present question.")
+                counter += 1
+                continue
+            elif answer2 == '-1':
+                print("You can use only one lifeline in a single question and hence no point will be awarded.")
+                count += 1
+            else:
+                print("Unfortunately, your answer is incorrect:(( ")
+                player_1.decr()
+                counter += 1
+        else:
+            print("Unfortunately, your answer is incorrect:(( ")
+            player_1.decr()
+            counter += 1
+#giving the final result
+player_1.qualify_round_2()
