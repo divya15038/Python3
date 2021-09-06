@@ -198,3 +198,12 @@ if tv_show == 3:
                 count += 1
     #giving the final result
     player_1.qualify_round_1()
+
+print("""Welcom to round_2
+Just as a reminder.This round has 15 multi choice questions.For each correct answer you get +1 and for incorrect -1.
+You can skip a question by pressing 0.
+Also you can use two lifelines:
+(1)Change the question: Press '-1' to avial it.
+(2)50:50 : Press '5050' to avail it.
+ALL THE BEST ;)) """)
+#Round 2 begins
