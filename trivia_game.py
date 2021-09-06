@@ -35,3 +35,11 @@ class Player:
             print("Congratulations on finishing this TRIVIA GAME. I hope you enjoyed it. You scored a total of {} points.".format(self.total))
             print("You really are 'A FAN'!!")
         print("Thankyou for playing:))")
+
+
+#printing the title of the game
+print(" *****  *****  *****  *       *  *****     ***          ****       **     **    **  ***** ")
+print("   *    *   *    *     *     *     *      *   *         *         *  *    * *  * *  * ")
+print("   *    *****    *      *   *      *     *******        * ***    ******   *  **  *  ***** ")
+print("   *    * *      *       * *       *    *       *       *   *   *      *  *   *  *  * ")
+print("   *    *   *  *****      *      ***** *         *      *****  *        * *      *  *****")
