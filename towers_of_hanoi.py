@@ -123,4 +123,30 @@ def get_input():
         else:
             print("Enter a valid option!!")
 
+#setting up the game
+user_moves = 0
+
+while right_stack.size != num_disks:
+    print("\n\nCurrent Stacks:")
+    for stack in stacks_list:
+        stack.print_items()
+
+    while True:
+        print("Which stack do you want to move from?")
+        from_stack = get_input()
+        print("Which stack do you want to move the disk to?")
+        to_stack = get_input()
+
+        if from_stack.is_empty():
+            print("Invalid move!Try again:(")
+        
+        elif to_stack.is_empty() or from_stack.peek() < to_stack.peek():
+            value = from_stack.pop()
+            to_stack.push(value)
+            user_moves += 1
+            break
+
+        else:
+            print("Invalid Move!Try Again:(")
+            
 
