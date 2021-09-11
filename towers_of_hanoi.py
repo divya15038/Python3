@@ -99,3 +99,11 @@ while num_disks < 3:
     print("\nEnter a number for disks which is greater than 3 for the game to be interesting.")
     num_disks = int(input("Enter the number of disks you want to play the game with?"))
 
+#optimal no. of moves
+optimal_moves = 2**num_disks - 1
+print("The optimal no. of moves for {}: {}".format(num_disks, optimal_moves))
+
+#pusing the disks into the left stack
+for i in range(num_disks, 0, -1):
+    left_stack.push(i)
+    
