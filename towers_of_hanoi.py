@@ -90,3 +90,12 @@ stacks_list = []
 stacks_list.append(left_stack)
 stacks_list.append(middle_stack)
 stacks_list.append(right_stack)
+
+#getting input from user for the number of disks to play the game with 
+num_disks = int(input("Enter the number of disks you want to play the game with?"))
+
+#checking if the num_disks is greater than 3, if not reasking the user
+while num_disks < 3:
+    print("\nEnter a number for disks which is greater than 3 for the game to be interesting.")
+    num_disks = int(input("Enter the number of disks you want to play the game with?"))
+
