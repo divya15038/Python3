@@ -106,4 +106,21 @@ print("The optimal no. of moves for {}: {}".format(num_disks, optimal_moves))
 #pusing the disks into the left stack
 for i in range(num_disks, 0, -1):
     left_stack.push(i)
-    
+
+#method for getting input from user
+def get_input():
+    choices = [stack.get_name()[0] for stack in stacks_list]
+    while True:
+        for i in range(0, len(stacks_list)):
+            stack = stacks_list[i]
+            letter = stack[i]
+            print("Type {} for {}".format(letter, stack))
+        user_input = ("")
+        if user_input in choices:
+            for i in range(0, len(choices)):
+                if user_input == choices[i]:
+                    return stacks_list[i]
+        else:
+            print("Enter a valid option!!")
+
+
