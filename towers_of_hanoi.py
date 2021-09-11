@@ -65,11 +65,11 @@ class Stacks:
     def print_items(self):
         ptr = self.top_item
         list_items = []
-        while ptr:
-            list_items.append(ptr)
-            ptr = self.top_item.get_next_node()
+        while ptr is not None:
+            list_items.append(ptr.get_value())
+            ptr = ptr.get_next_node()
         list_items.reverse()
-        print("{} Stack: {}".format(self.get_name, list_items))
+        print("{} Stack: {}".format(self.get_name(), list_items))
 
 #Introduction to the game
 print("""The Tower of Hanoi (also called The problem of Benares Temple[1] or Tower of Brahma or Lucas' Tower[2] and sometimes pluralized as Towers, or simply pyramid puzzle[3]) is a mathematical game or puzzle consisting of three rods and a number of disks of various diameters, which can slide onto any rod. The puzzle begins with the disks stacked on one rod in order of decreasing size, the smallest at the top, thus approximating a conical shape. The objective of the puzzle is to move the entire stack to the last rod, obeying the following rules:
@@ -113,9 +113,9 @@ def get_input():
     while True:
         for i in range(0, len(stacks_list)):
             stack = stacks_list[i]
-            letter = stack[i]
-            print("Type {} for {}".format(letter, stack))
-        user_input = ("")
+            letter = choices[i]
+            print("Type {} for {}".format(letter, stack.get_name()))
+        user_input = input("")
         if user_input in choices:
             for i in range(0, len(choices)):
                 if user_input == choices[i]:
@@ -148,5 +148,7 @@ while right_stack.size != num_disks:
 
         else:
             print("Invalid Move!Try Again:(")
-            
+
+#printing the result of the game
+print("\n\nYou completed the game in {} moves, and the optimal number of moves is {}".format(user_moves, optimal_moves))
 
