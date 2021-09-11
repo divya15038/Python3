@@ -79,3 +79,14 @@ print("""The Tower of Hanoi (also called The problem of Benares Temple[1] or Tow
 With 3 disks, the puzzle can be solved in 7 moves. The minimal number of moves required to solve a Tower of Hanoi puzzle is 2^n − 1, where n is the number of disks.""")
 
 print("Let's play the game 'Towers of Hanoi!!All the best:))")
+
+#Create the stacks
+left_stack = Stacks("Left")
+middle_stack = Stacks("Middle")
+right_stack = Stacks("Right")
+
+#Create a list containing stacks created
+stacks_list = []
+stacks_list.append(left_stack)
+stacks_list.append(middle_stack)
+stacks_list.append(right_stack)
