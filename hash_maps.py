@@ -71,5 +71,16 @@ india = HashMap(28)
 for state in Indian_states:
   india.assign(state[0], state[1])
 
+#taking input from user
+user_input = (input("Enter an Indian state?:")).capitalize()
 
+#Checking for a valid input
+flag = True
+for state in Indian_states:
+  if user_input == state[0]:
+    flag = False
+if flag:    
+  print("Enter valid state name!")
+else:
+  print("The capital of {} is {}".format(user_input, india.retrieve(user_input)))
 
